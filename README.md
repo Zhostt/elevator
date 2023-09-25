@@ -1,13 +1,15 @@
 # elevator
 
+Simple elevator emulator for test-task.
+
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Development mode
 ```
-npm run serve
+npm run start
 ```
 
 ### Compiles and minifies for production
@@ -19,6 +21,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
