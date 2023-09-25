@@ -1,7 +1,7 @@
 <template>
-    <div class="level-list">
-        <slot></slot>
-    </div>
+  <div class="level-list">
+    <slot></slot>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -12,7 +12,7 @@ import {
 const emits = defineEmits(['change']);
 
 const internalValue = ref(null);
-// тоже не масшабируется если будет больше одного компонента
+// не масшабируется если будет больше одного компонента
 provide('level', internalValue);
 
 watch(internalValue, (value) => emits('change', value));
@@ -20,7 +20,7 @@ watch(internalValue, (value) => emits('change', value));
 
 <style>
 .level-list {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 </style>
