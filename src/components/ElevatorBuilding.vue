@@ -12,36 +12,29 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  computed,
-  ref,
-  onMounted,
-  onBeforeUnmount,
-  watch,
-  withDefaults,
-  defineProps,
-} from 'vue';
-import { LevelList, FloorLevel, LiftBase } from './lift';
+import { computed, ref, withDefaults, defineProps } from "vue";
+import { LevelList, FloorLevel, LiftBase } from "./lift";
 
 interface Props {
   floorNum: number;
 }
-
+// Пропсы на вход, дефолт 5 этажей
 const props = withDefaults(defineProps<Props>(), {
   floorNum: 5,
 });
 
-const selectedLevel = ref<number>(0); // Текущий этаж, передадим в Lift как next-floor
+const selectedLevel = ref<number>(0); // Текущий этаж, передадим в LiftBase как next-floor
 const levelStack = ref<number[]>([]); // Очередь вызовов
 
-const computedFloorNum = computed(
-  () => Array(props.floorNum)
+// Собираем номера этажей в нужном порядке (снизу вверх) для отрисовки в v-for
+const computedFloorNum = computed(() =>
+  Array(props.floorNum)
     .fill(null)
-    .map((_el, index) => props.floorNum - index), // Номера этажей в нужном порядке
+    .map((_el, index) => props.floorNum - index)
 );
 
+// Обработка выбора этажа кнопкой
 function onLevelChange(level: number) {
-  // Обработка изменения уровня
   selectedLevel.value = level; // меняем текущий этаж на переданный
   levelStack.value.push(level); // Добавляем переданный в очередь
 }

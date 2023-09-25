@@ -16,6 +16,10 @@ module.exports = {
     'no-debugger': 'off',
     'no-shadow': 'off',
     'comma-dangle': 'off',
-    quotes: 'off'
+    quotes: 'off',
+    'object-curly-newline': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
+
   },
 };

@@ -5,17 +5,16 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  provide, ref, watch, defineEmits,
-} from 'vue';
+import { provide, ref, watch, defineEmits } from "vue";
 
-const emits = defineEmits(['change']);
+// Будем эмитить change
+const emits = defineEmits(["change"]);
 
 const internalValue = ref(null);
-// не масшабируется если будет больше одного компонента
-provide('level', internalValue);
-
-watch(internalValue, (value) => emits('change', value));
+provide("level", internalValue);
+// internalValue передаем в ребенка (список этажей), следим за его изменениями
+// Это номер этажа
+watch(internalValue, (value) => emits("change", value));
 </script>
 
 <style>
