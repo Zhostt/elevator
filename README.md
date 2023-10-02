@@ -2,6 +2,11 @@
 
 Simple elevator emulator for test-task.
 
+## Deployed link
+```
+https://elevator-woad.vercel.app/
+```
+
 ## Project setup
 ```
 npm install
